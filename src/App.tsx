@@ -63,7 +63,7 @@ export default function App(){
  },[started,current,platform]);
 
  const start=()=>{if(!cards.length){setFeedback("Add at least one custom card first.");return}setIndex(0);setScore(0);setRemaining(45);setStarted(true);setFeedback("Round started. Click the practice card, then press the shortcut.")};
- const addCard=(event:FormEvent)=>{event.preventDefault();const clean=combo.toUpperCase().replace(/\\s/g,"");if(!prompt.trim()||! /^(MOD\\+)?(SHIFT\\+)?(ALT\\+)?[A-Z0-9/]+$/.test(clean)){setFeedback("Use a prompt and a combo such as MOD+K or MOD+SHIFT+P.");return}setCustom(v=>[...v,{prompt:prompt.trim(),combo:clean}]);setPrompt("");setFeedback("Custom shortcut saved in this browser.")};
+ const addCard=(event:FormEvent)=>{event.preventDefault();const clean=combo.toUpperCase().replace(/\s/g,"");if(!prompt.trim()||! /^(MOD\+)?(SHIFT\+)?(ALT\+)?[A-Z0-9/]+$/.test(clean)){setFeedback("Use a prompt and a combo such as MOD+K or MOD+SHIFT+P.");return}setCustom(v=>[...v,{prompt:prompt.trim(),combo:clean}]);setPrompt("");setFeedback("Custom shortcut saved in this browser.")};
  return <main className="app">
   <header><span className="kicker">KEYBOARD SKILL BUILDER</span><h1>Shortcut <b>Sprint</b></h1><p>Small rounds. Better muscle memory. Your custom cards stay on this device.</p></header>
   <section className="top-controls">
